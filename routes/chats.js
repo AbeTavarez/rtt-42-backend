@@ -1,17 +1,12 @@
-import express from 'express'
+import express from "express";
+import { fetchAllChats } from "../controllers/chats.js";
 
-const router = express.Router()
-
-
+const router = express.Router();
 
 /**
- * GET /chats
+ * GET /api/chats
  * @description Return all chats
  */
-router.get('/', (req, res) => {
-    res.send('Hello from chats')
-});
-
-
+router.get("/", fetchAllChats);
 
 export default router;
