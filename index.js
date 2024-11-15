@@ -2,7 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv'
 import morgan from 'morgan';
 import cors from 'cors';
+import chatsRouter from './routes/chats.js';
 import { connect } from './db/connect.js';
+
 
 dotenv.config();
 connect();
@@ -19,6 +21,8 @@ app.use(express.urlencoded({extended: true}))
 
 
 // Routes
+app.use('/api/chats', chatsRouter);
+
 app.get('/', async (req, res) => {
     res.send("Welcome to my API")
 });
